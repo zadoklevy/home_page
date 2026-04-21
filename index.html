@@ -1,31 +1,46 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>דף עם תמונת רקע</title>
     <style>
+        /* הגדרות עבור ה-body (גוף הדף) */
         body {
+            /* 1. הכתובת של התמונה */
+            /* החלף את 'background.jpg' בשם הקובץ של התמונה שלך */
+            background-image: url('background.jpg');
+
+            /* 2. הגדרות כדי שהתמונה תיראה טוב */
+            background-repeat: no-repeat;  /* אל תחזור על התמונה */
+            background-size: cover;      /* תמתח את התמונה כדי שתכסה את כל המסך */
+            background-position: center;  /* מרכז את התמונה */
+            background-attachment: fixed; /* שהרקע יישאר קבוע כשגוללים */
+
+            /* הגדרות נוספות כדי שהטקסט ייראה טוב */
             margin: 0;
-            min-height: 100vh;
-            background-image: url("background.jpg");
-            background-size: cover;      /* התאמת התמונה למסך */
-            background-position: center; /* מיקום מרכזי */
-            background-repeat: no-repeat;
+            padding: 0;
+            height: 100vh; /* גובה מלא של המסך */
+            display: flex;
+            justify-content: center; /* מרכוז אופקי של התוכן */
+            align-items: center;     /* מרכוז אנכי של התוכן */
             font-family: Arial, sans-serif;
         }
 
-        .content {
-            color: white;
+        /* הגדרות עבור תיבת התוכן */
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.8); /* רקע לבן חצי שקוף */
+            padding: 30px;
+            border-radius: 15px;
             text-align: center;
-            padding-top: 40vh;
-            font-size: 2rem;
-            background: rgba(0, 0, 0, 0.4); /* רקע כהה לטקסט */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        שלום עולם 🌍
+    <div class="content-box">
+        <h1>ברוכים הבאים לאתר שלי!</h1>
+        <p>זהו דף HTML פשוט עם תמונת רקע שמכסה את כל המסך.</p>
     </div>
 </body>
 </html>
