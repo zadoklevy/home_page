@@ -46,6 +46,26 @@
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
+        /* --- כאן מתחילה הרספונסיביות (התאמה לנייד) --- */
+        @media (max-width: 768px) {
+            body {
+                /* בנייד לפעמים עדיף שהתמונה תהיה קבועה או תתאים את עצמה אחרת */
+                background-attachment: scroll;
+                padding-top: 30px;
+                 min-height: 0vh;
+                 background-position:revert;
+            }
+
+            .content-box {
+                width: 85%; /* בנייד התיבה תתפוס כמעט את כל רוחב המסך */
+                padding: 20px;
+                margin-bottom: 50px; /* רווח בתחתית כדי שלא ייצמד לקצה */
+            }
+
+            h1 {
+                font-size: 1.5rem; /* הקטנת הכותרת שתתאים למסך קטן */
+            }
+        }
     </style>
 </head>
 <body>
