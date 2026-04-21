@@ -3,76 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>דף עם תמונת רקע</title>
+    <title>פתרון סופי לרקע</title>
     <style>
-        /* הגדרות עבור ה-body (גוף הדף) */
-        body {
-            /* 1. הכתובת של התמונה */
-            /* החלף את 'background.jpg' בשם הקובץ של התמונה שלך */
-            background-image: url('background.jpg');
-            /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-    /* background-position: center; */
-    
-    /* שנה את fixed ל-scroll או פשוט מחק את השורה הזו */
-    background-attachment: scroll; 
-
-    /* margin: 0; */
-    /* padding: 0; */
-    /* כדי שיהיה לך בכלל לאן לגלול, נוסיף גובה מינימלי גדול */
-    min-height: 200vh;
-
-            /* 2. הגדרות כדי שהתמונה תיראה טוב */
-            background-repeat: no-repeat;  /* אל תחזור על התמונה */
-            background-size: cover;      /* תמתח את התמונה כדי שתכסה את כל המסך */
-            background-position: center;  /* מרכז את התמונה */ 
-           /* background-attachment: fixed; /* שהרקע יישאר קבוע כשגוללים */
-
-            /* הגדרות נוספות כדי שהטקסט ייראה טוב */
-            margin: 0%;
-            padding: 20%;
-            /*height: 100vh; /* גובה מלא של המסך */
-            display: flex;
-            justify-content: center; /* מרכוז אופקי של התוכן */
-            align-items: center;     /* מרכוז אנכי של התוכן */
-            font-family: Arial, sans-serif;
+        /* איפוס מוחלט */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            /* מסירים הגדרות גובה קבועות כדי שהתמונה תקבע את הגובה */
         }
 
-        /* הגדרות עבור תיבת התוכן */
+        .wrapper {
+            position: relative;
+            width: 100%;
+            /* מניעת שוליים לבנים בתחתית */
+            line-height: 0; 
+        }
+
+        .bg-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            /* התמונה היא זו שיוצרת את הגובה של הדף */
+        }
+
+        .content-overlay {
+            /* הצבת התוכן מעל התמונה */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* החזרת ה-line-height לטקסט */
+            line-height: normal; 
+            padding-top: 50px;
+        }
+
         .content-box {
-            background-color: rgba(255, 255, 255, 0.8); /* רקע לבן חצי שקוף */
-            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 25px;
+            margin: 20px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        /* --- כאן מתחילה הרספונסיביות (התאמה לנייד) --- */
-        @media (max-width: 768px) {
-            body {
-                /* בנייד לפעמים עדיף שהתמונה תהיה קבועה או תתאים את עצמה אחרת */
-                background-attachment: scroll;
-                padding-top: 30px;
-                 min-height: 0vh;
-                 background-position:revert;
-                margin-bottom: auto;
-            }
-
-            .content-box {
-                width: 85%; /* בנייד התיבה תתפוס כמעט את כל רוחב המסך */
-                padding: 20px;
-                margin-bottom: 50px; /* רווח בתחתית כדי שלא ייצמד לקצה */
-            }
-
-            h1 {
-                font-size: 1.5rem; /* הקטנת הכותרת שתתאים למסך קטן */
-            }
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 80%;
+            max-width: 450px;
         }
     </style>
 </head>
 <body>
-    <div class="content-box">
-        <h1>ברוכים הבאים לאתר שלי!</h1>
-        <p>זהו דף HTML פשוט עם תמונת רקע שמכסה את כל המסך.</p>
+
+    <div class="wrapper">
+        <img src="background.jpg" alt="background" class="bg-image">
+
+        <div class="content-overlay">
+            <div class="content-box">
+                <h1>זה יעבוד!</h1>
+                <p>הדף נגמר בדיוק איפה שהתמונה נגמרת.</p>
+            </div>
+            
+            </div>
     </div>
+
 </body>
 </html>
