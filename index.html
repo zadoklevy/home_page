@@ -42,7 +42,7 @@
             padding-top: 50px;
         }
 
-        .content-box {
+        /* .content-box {
             background-color: rgba(255, 255, 255, 0.85);
             padding: 25px;
             margin: 20px;
@@ -51,13 +51,17 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             width: 80%;
             max-width: 450px;
-        }
+        } */
         .contact-box{
              background: white;
             padding: 20px;
-            width: 300px;
+            width: 50%;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: absolute;
+            bottom: 10%;
+            left: 45%;
+            
         }
 
         .contact-box h2 {
@@ -66,12 +70,13 @@
         }
 
         .contact-box input,
-        .contact-box textarea {
+        .contact-box textarea{
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            max-inline-size: -webkit-fill-available;
         }
 
         .contact-box button {
@@ -93,9 +98,42 @@
             flex-direction: column;
             text-align: center;
         }
- .bg-image{
+        .bg-image{
             height: 100vh;  
- }
+        }
+        /* aply */
+        .contact-box{
+            width: 40%;           /* קטן */
+            height: 20%;
+            padding: 10px;
+            right: 10px;
+            bottom: 9%;
+            border-radius: 10px;
+            padding-bottom: 4%;
+        }
+        .contact-box h2{
+            font-size: 14px;
+            margin-bottom: 6px;
+            margin-top: auto;
+        }
+        .contact-box input,
+        .contact-box textarea {
+            font-size: 12px;
+            padding: 6px;
+            margin-bottom: 6px;
+        }
+        .contact-box textarea {
+            display: none;          /* מסתיר הודעה – קומפקטי */
+        }
+        .contact-box button{
+            font-size: 13px;
+            padding: 8px;
+        }
+        /* .contact-box{
+            width: 40%;
+            height: 20%;
+            padding: 10px;
+        } */
         .form {
             width: 100%;
         }
@@ -108,20 +146,21 @@
         <img src="background.jpeg" alt="background" class="bg-image">
 
         <div class="content-overlay">
-            <div class="content-box">
+            <!-- <div class="content-box">
                 <h1>זה יעבוד!</h1>
                 <p>הדף נגמר בדיוק איפה שהתמונה נגמרת.</p>
-            </div>
+            </div> -->
             
-            </div>
+            <div class="contact-box">
+            <h2>צור קשר</h2>
+            <input type="text" placeholder="שם מלא" required>
+            <input type="number" placeholder="טלפון" required>
+            <input type="text" placeholder="שם העסק" required>
+            <textarea rows="2" placeholder="הודעה" required></textarea>
+            <button>שלח</button>
+        </div>
+        </div>
     </div>
-    <div class="contact-box">
-    <h2>צור קשר</h2>
-    <input type="text" placeholder="שם מלא" required>
-    <input type="email" placeholder="אימייל" required>
-    <textarea rows="4" placeholder="הודעה" required></textarea>
-    <button>שלח</button>
-</div>
 
 </body>
 </html>
