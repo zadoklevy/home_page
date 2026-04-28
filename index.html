@@ -161,6 +161,65 @@
         </div>
         </div>
     </div>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/972523378209?text=שלום%20אשמח%20לקבל%20פרטים"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="צור קשר בוואטסאפ">
 
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+       alt="WhatsApp"
+       class="whatsapp-icon">
+
+</a>
+
+<style>
+.whatsapp-float {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 9999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-icon {
+  width: 32px;
+  height: 32px;
+  /* filter: brightness(0) invert(1); */
+}
+
+/* לחיצה */
+.whatsapp-float:active {
+  transform: scale(0.92);
+}
+
+/* hover למחשב */
+.whatsapp-float:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+/* התאמה לניידים קטנים */
+@media (max-width: 480px) {
+  .whatsapp-float {
+    width: 54px;
+    height: 54px;
+    bottom: 14px;
+    right: 14px;
+  }
+  .whatsapp-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+</style>
 </body>
 </html>
