@@ -138,6 +138,24 @@
         /* .contact-box button:hover {
             background: #0056b3;
         }     */
+        .phone-box {
+  position: fixed;      /* אפשר לשנות ל-absolute / relative */
+  bottom: 20px;         /* מיקום */
+  right: 20px;
+
+  background: #0a7cff;
+  padding: 12px 18px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.phone-box a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+        
         
          @media (max-width: 750px) {
         .content {
@@ -183,6 +201,10 @@
         .form {
             width: 100%;
         }
+              .phone-box {
+    bottom: 15px;
+    right: 15px;
+  }
     }
     </style>
 </head>
@@ -270,6 +292,9 @@ function closePopup() {
 </script>
         <!-- </div> -->
     </div>
+    <div class="phone-box">
+  <a href="tel:025655090">📞 02-5655090</a>
+</div>
 <!-- WhatsApp Floating Button -->
 <a href="https://wa.me/972523378209?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%0A%D7%A9%D7%9D%20%D7%94%D7%A2%D7%A1%D7%A7%3A%0A%D7%97.%D7%A4.%3A"
    class="whatsapp-float"
