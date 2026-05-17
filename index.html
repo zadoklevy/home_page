@@ -3,27 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>צדוק לוי – אספקת פירות וירקות עד אליך</title>
+<title>צדוק לוי - עד אליך</title>
 
 <style>
-/* ===== נגישות בסיסית ===== */
-:focus {
-  outline: 3px solid #005fcc;
-  outline-offset: 2px;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* ===== עיצוב קיים ===== */
 html, body {
   margin: 0;
   padding: 0;
@@ -47,7 +29,7 @@ html, body {
   padding: 20px;
   width: 30%;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   position: absolute;
   bottom: 10%;
   left: 60%;
@@ -57,7 +39,7 @@ html, body {
 .contact-box h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #0a7a0a;
+  color: green;
 }
 
 .contact-box input,
@@ -66,27 +48,26 @@ html, body {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  border: 1px solid #777;
-  font-size: 16px;
+  border: none;
+  outline: none;
+  color: green;
 }
 
 .contact-box button {
   width: 100%;
   padding: 10px;
-  background: #6aa84f;
-  color: #003300;
+  background: yellowgreen;
+  color: green;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
 }
 
 .contact-box button:hover {
-  background: #0a7a0a;
+  background: green;
   color: white;
 }
 
-/* ===== טלפון ===== */
 .phone-box {
   position: fixed;
   left: 100px;
@@ -95,35 +76,17 @@ html, body {
   padding: 12px 18px;
   border-radius: 30px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 9999;
 }
 
 .phone-box a {
-  color: #064f06;
+  color: darkgreen;
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
 }
 
-/* ===== פופאפ ===== */
-.popup-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.popup-box {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  max-width: 300px;
-}
-
-/* ===== וואטסאפ ===== */
+/* WhatsApp */
 .whatsapp-float {
   position: fixed;
   bottom: 16px;
@@ -137,6 +100,7 @@ html, body {
   justify-content: center;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 9999;
 }
 
 .whatsapp-icon {
@@ -144,17 +108,61 @@ html, body {
   height: 32px;
 }
 
-/* ===== רספונסיביות ===== */
+/* ===== נגישות ===== */
+.accessibility-btn {
+  position: fixed;
+  bottom: 90px;
+  left: 16px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #005fcc;
+  color: #fff;
+  font-size: 26px;
+  border: none;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.accessibility-panel {
+  position: fixed;
+  bottom: 160px;
+  left: 16px;
+  background: #ffffff;
+  border: 2px solid #005fcc;
+  border-radius: 10px;
+  padding: 10px;
+  width: 220px;
+  display: none;
+  z-index: 10000;
+}
+
+.accessibility-panel button {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.high-contrast {
+  background: black !important;
+  color: white !important;
+}
+
+.large-text {
+  font-size: 120%;
+}
+
+.underline-links a {
+  text-decoration: underline !important;
+}
+
 @media (max-width: 768px) {
   .contact-box {
     width: 40%;
-    left: auto;
     right: 10px;
-    bottom: 4%;
-    padding: 10px;
-  }
-  .phone-box {
-    left: 60px;
+    left: auto;
+    bottom: 5%;
   }
 }
 </style>
@@ -162,61 +170,40 @@ html, body {
 
 <body>
 
-<main class="wrapper" role="main">
+<div class="wrapper">
+  <img src="background.webp" class="bg-image" alt="אספקת פירות וירקות טריים לעסקים">
 
-<img 
-  src="background.webp"
-  class="bg-image"
-  alt="אספקת פירות וירקות טריים לעסקים, מסעדות וחברות – צדוק לוי"
-/>
-
-<section class="contact-box" aria-labelledby="contact-title">
-<h2 id="contact-title">צור קשר</h2>
-
-<form id="contactForm" aria-label="טופס יצירת קשר">
-
-<label class="visually-hidden" for="name">שם מלא</label>
-<input id="name" type="text" name="name" placeholder="שם מלא">
-
-<label class="visually-hidden" for="phone">טלפון</label>
-<input id="phone" type="tel" name="phone" placeholder="טלפון" required>
-
-<label class="visually-hidden" for="business">שם העסק</label>
-<input id="business" type="text" name="business_name" placeholder="שם העסק" required>
-
-<label class="visually-hidden" for="message">הודעה</label>
-<textarea id="message" name="message" placeholder="הודעה" required></textarea>
-
-<button type="submit">שלח</button>
-</form>
-</section>
-
-</main>
-
-<!-- פופאפ -->
-<div id="popup" class="popup-overlay" role="dialog" aria-live="assertive" aria-modal="true">
-  <div class="popup-box">
-    <p>ההודעה נשלחה בהצלחה ✔</p>
-    <button onclick="closePopup()">אישור</button>
+  <div class="contact-box">
+    <h2>צור קשר</h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="שם מלא">
+      <input type="tel" name="phone" placeholder="טלפון" required>
+      <input type="text" name="business_name" placeholder="שם העסק" required>
+      <textarea name="message" placeholder="הודעה" required></textarea>
+      <button type="submit">שלח</button>
+    </form>
   </div>
 </div>
 
 <div class="phone-box">
-  <a href="tel:025655090" aria-label="חיוג לטלפון 02-5655090">
-    📞 02-5655090
-  </a>
+  <a href="tel:025655090">📞 02-5655090</a>
 </div>
 
-<a
-  href="https://wa.me/972523378209"
-  class="whatsapp-float"
-  aria-label="פנייה בוואטסאפ"
-  target="_blank"
->
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-     alt=""
-     class="whatsapp-icon">
+<a href="https://wa.me/972523378209" class="whatsapp-float" aria-label="צור קשר בוואטסאפ">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+       alt="אייקון וואטסאפ"
+       class="whatsapp-icon">
 </a>
+
+<!-- כפתור נגישות -->
+<button class="accessibility-btn" aria-label="פתח תפריט נגישות" onclick="toggleAccessibility()">♿</button>
+
+<div class="accessibility-panel" id="accessibilityPanel">
+  <button onclick="toggleContrast()">ניגודיות גבוהה</button>
+  <button onclick="toggleText()">הגדלת טקסט</button>
+  <button onclick="toggleUnderline()">קו תחתון לקישורים</button>
+  <button onclick="resetAccessibility()">איפוס</button>
+</div>
 
 <script>
 document.getElementById("contactForm").addEventListener("submit", async function(e) {
@@ -228,15 +215,28 @@ document.getElementById("contactForm").addEventListener("submit", async function
     headers: { "Accept": "application/json" }
   });
   if (response.ok) {
-    document.getElementById("popup").style.display = "flex";
+    alert("ההודעה נשלחה בהצלחה");
     this.reset();
   } else {
     alert("שגיאה בשליחה");
   }
 });
 
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
+function toggleAccessibility() {
+  const panel = document.getElementById("accessibilityPanel");
+  panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+function toggleContrast() {
+  document.body.classList.toggle("high-contrast");
+}
+function toggleText() {
+  document.body.classList.toggle("large-text");
+}
+function toggleUnderline() {
+  document.body.classList.toggle("underline-links");
+}
+function resetAccessibility() {
+  document.body.classList.remove("high-contrast","large-text","underline-links");
 }
 </script>
 
