@@ -1,112 +1,244 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="אתר תדמית נגיש בהתאם לתקן WCAG 2.1 AA">
-  <title>דף הבית</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>צדוק לוי – אספקת פירות וירקות עד אליך</title>
 
-  <style>
-    /* דילוג לתוכן – נגישות מקלדת */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 10px;
-      background: #000;
-      color: #fff;
-      padding: 8px 12px;
-      z-index: 1000;
-      text-decoration: none;
-    }
-    .skip-link:focus {
-      top: 10px;
-    }
+<style>
+/* ===== נגישות בסיסית ===== */
+:focus {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #ffffff;
-      color: #000000;
-    }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
 
-    header, main, footer {
-      max-width: 1200px;
-      margin: auto;
-    }
+/* ===== עיצוב קיים ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 
-    .hero {
-      position: relative;
-    }
+.wrapper {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
 
-    .hero img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+.bg-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-    .hero-text {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(255,255,255,0.85);
-      padding: 15px;
-      border-radius: 8px;
-      max-width: 90%;
-    }
+.contact-box {
+  background: white;
+  padding: 20px;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  position: absolute;
+  bottom: 10%;
+  left: 60%;
+  line-height: normal;
+}
 
-    h1 {
-      margin-top: 0;
-      font-size: 1.8rem;
-    }
+.contact-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0a7a0a;
+}
 
-    a:focus,
-    button:focus {
-      outline: 3px solid #005fcc;
-      outline-offset: 2px;
-    }
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #777;
+  font-size: 16px;
+}
 
-    footer {
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-  </style>
+.contact-box button {
+  width: 100%;
+  padding: 10px;
+  background: #6aa84f;
+  color: #003300;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-box button:hover {
+  background: #0a7a0a;
+  color: white;
+}
+
+/* ===== טלפון ===== */
+.phone-box {
+  position: fixed;
+  left: 100px;
+  bottom: 20px;
+  background: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.phone-box a {
+  color: #064f06;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ===== פופאפ ===== */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 300px;
+}
+
+/* ===== וואטסאפ ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.whatsapp-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* ===== רספונסיביות ===== */
+@media (max-width: 768px) {
+  .contact-box {
+    width: 40%;
+    left: auto;
+    right: 10px;
+    bottom: 4%;
+    padding: 10px;
+  }
+  .phone-box {
+    left: 60px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+<main class="wrapper" role="main">
 
-<header>
-  <div class="hero">
-    <img src="background.jpeg"
-         alt="תמונת רקע של האתר המשמשת כאלמנט עיצובי">
-    <div class="hero-text">
-      <h1>ברוכים הבאים</h1>
-      <p>זהו אתר נגיש בהתאם לתקן WCAG 2.1 ברמה AA.</p>
-    </div>
-  </div>
-</header>
+<img 
+  src="background.webp"
+  class="bg-image"
+  alt="אספקת פירות וירקות טריים לעסקים, מסעדות וחברות – צדוק לוי"
+/>
 
-<main id="main-content">
-  <section aria-labelledby="about-title">
-    <h2 id="about-title">אודות</h2>
-    <p>
-      האתר תוכנן להיות נגיש עבור אנשים עם מוגבלויות,
-      כולל כבדי ראייה, משתמשי מקלדת וקוראי מסך.
-    </p>
-  </section>
+<section class="contact-box" aria-labelledby="contact-title">
+<h2 id="contact-title">צור קשר</h2>
+
+<form id="contactForm" aria-label="טופס יצירת קשר">
+
+<label class="visually-hidden" for="name">שם מלא</label>
+<input id="name" type="text" name="name" placeholder="שם מלא">
+
+<label class="visually-hidden" for="phone">טלפון</label>
+<input id="phone" type="tel" name="phone" placeholder="טלפון" required>
+
+<label class="visually-hidden" for="business">שם העסק</label>
+<input id="business" type="text" name="business_name" placeholder="שם העסק" required>
+
+<label class="visually-hidden" for="message">הודעה</label>
+<textarea id="message" name="message" placeholder="הודעה" required></textarea>
+
+<button type="submit">שלח</button>
+</form>
+</section>
+
 </main>
 
-<footer>
-  <section aria-labelledby="accessibility-title">
-    <h2 id="accessibility-title">הצהרת נגישות</h2>
-    <p>
-      אתר זה עומד בדרישות תקן הנגישות WCAG 2.1 ברמה AA.
-      אם נתקלתם בבעיה, ניתן לפנות אל בעל האתר לקבלת סיוע.
-    </p>
-  </section>
-</footer>
+<!-- פופאפ -->
+<div id="popup" class="popup-overlay" role="dialog" aria-live="assertive" aria-modal="true">
+  <div class="popup-box">
+    <p>ההודעה נשלחה בהצלחה ✔</p>
+    <button onclick="closePopup()">אישור</button>
+  </div>
+</div>
+
+<div class="phone-box">
+  <a href="tel:025655090" aria-label="חיוג לטלפון 02-5655090">
+    📞 02-5655090
+  </a>
+</div>
+
+<a
+  href="https://wa.me/972523378209"
+  class="whatsapp-float"
+  aria-label="פנייה בוואטסאפ"
+  target="_blank"
+>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+     alt=""
+     class="whatsapp-icon">
+</a>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const formData = new FormData(this);
+  const response = await fetch("https://formspree.io/f/xqewvjqe", {
+    method: "POST",
+    body: formData,
+    headers: { "Accept": "application/json" }
+  });
+  if (response.ok) {
+    document.getElementById("popup").style.display = "flex";
+    this.reset();
+  } else {
+    alert("שגיאה בשליחה");
+  }
+});
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
 
 </body>
 </html>
